@@ -4,8 +4,8 @@ CREATE TABLE `devices` (
     `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `device_token` varchar(255) NOT NULL UNIQUE,
     `position` point NULL,
-    `created_at` timestamp NOT NULL,
-    `updated_at` timestamp NOT NULL
+    `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 DROP TABLE IF EXISTS `cameras`;
@@ -15,8 +15,8 @@ CREATE TABLE `cameras` (
     `address` varchar(255) NOT NULL,
     `position` point NOT NULL,
     `name` varchar(255) NOT NULL,
-    `created_at` timestamp NOT NULL,
-    `updated_at` timestamp NOT NULL
+    `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 DROP TABLE IF EXISTS `reports`;
@@ -26,6 +26,6 @@ CREATE TABLE `reports` (
     `reported_at` datetime NOT NULL,
     `position` point NOT NULL,
     `address` varchar(255) NOT NULL,
-    `created_at` timestamp NOT NULL,
-    `updated_at` timestamp NOT NULL
+    `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
