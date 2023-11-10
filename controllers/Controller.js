@@ -1,7 +1,7 @@
 const { Camera, Report } = require("../models/Model");
 
 async function parseQuery(rectangle_string) {
-  const coordinates = rectangle_string.split(',').map(Number);
+  const coordinates = (rectangle_string||"").split(',').map(Number);
   const range_points = [];
   for (let i = 0; i < coordinates.length; i += 2) {
     range_points.push([coordinates[i], coordinates[i+1]]);
